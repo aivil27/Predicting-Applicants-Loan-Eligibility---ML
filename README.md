@@ -1,5 +1,7 @@
 # Predicting Applicants Loan Eligibility - Machine Learning
 
+The project is divided into two phases. In the first phase (Phase 1), we conducted data cleaning and exploration. Afterwards, in Phase 2, the chosen machine learning models were applied to the cleaned dataset, and predictions were made based on the data.
+
 ## Dataset source
 
 The data set that was used for this assignment is Loan Eligibility dataset. The data is taken from the Kaggle website (Devzohaib,2023). The data shows whether or not an applicant is granted for their loan application based on the information that each applicant provided.  
