@@ -3,6 +3,7 @@
 ## Dataset source
 
 The data set that was used for this assignment is Loan Eligibility dataset. The data is taken from the Kaggle website (Devzohaib,2023). The data shows whether or not an applicant is granted for their loan application based on the information that each applicant provided.  
+(Devzohaib.(2023). *Eligibility Prediction for Loan*. Kaggle. https://www.kaggle.com/datasets/devzohaib/eligibility-prediction-for-loan/data)
 
 ## Target Feature
 
@@ -31,3 +32,15 @@ The modelling methodology begins by doing one hot encoding to the categorical fe
 Using the features that have been selected, the stratified K-Fold cross-validation is used before fitting the models so that equal proportions of the target feature are used for the training and testing datasets. The 5-fold stratified cross-validation is also conducted to fine-tune the hyperparameters of each classifier. We use the area under the curve (AUC) as the performance metric for all algorithms, except for neural networks (NN), which use accuracy as the performance metric. Each of the model is also build using parallel processing with "-2" cores. This is due to the target feature has an unbalanced target where the dataset has more observations for Loan Status is approved (Loan Status = Y). The results of each hyper-parameter tuning for each classifiers is then assessed and visualised using plots. Furthermore, for the NB classifier, the PowerTransformer method is applied to the training data due to GaussianNB method assume normal distribution. 
 
 The tuned classifiers are the classifiers that have been optimised using the best hyper-parameter values that are identified through grid search. Once all six tuned classifiers (with the best hyper-parameter values) are identified, the tuned classifiers are then fitted into the test data using 5-fold cross validation. Lastly, the paired t-tests are then conducted to see if there are any performances that differ significantly based on the statistic test. 
+
+## Summary of findings
+
+In this case, we leverage Random Forest Importance (RFI) to identify key features that verify loan applicant eligibility, thereby improving a company's processing efficiency. By training a random forest model on the dataset, we extracted feature importance and selected the most relevant features. Our model shows that the first five features: `Self_Employed`, `CoapplicantIncome`, `Loan_Amount_Term`, `Credit_History`, and `ApplicantIncome`, are critical in determining an applicant's eligibility.
+
+Furthermore, The Random Forest (RF) model with 5 features selected by Random Forest Importance (RFI) performs the best with the highest cross-validated AUC score of 0.82 on the training data. Additionally, there are significant differences between the AUC score of Random Forest (RF) model and Naive Bayes (NB) model, K-Nearest Neighbors (KNN) model, Decision Tree (DT) model, and SVC model due to their p-value less than 0.05. On the contrary, there is no significant difference between the AUC score of Random Forest (RF) model and Neural network (NN) model because its p-value is greater than 0.05. Therefore, RF and NN models could be used to predict the loan eligibility in this case. However, when comparing the computational cost of these two models, RF model is a better choice for the prediction of loan eligibility.
+
+## Conclusions
+
+After the analysis of all the classifier models, the goals and objectives of our project has been achieved. The random forest model has been chosen as the best model to help the company to improve the processing efficiency of the validation process of the applicants' eligibility with less resource usage. By choosing only some of the best features such as `Self_Employed`, `CoapplicantIncome`, `Loan_Amount_Term`, `Credit_History`, and `ApplicantIncome` to predict the applicants' eligibility, it can also help the company improve the overall operational efficiency and decision accuracy.
+
+In summary, the application of the random forest model and the identification of the top five features would greatly improve  the company's loan eligibility processing process, providing a more reliable and efficient method for assessing applicant eligibility while optimizing resource utilization.
