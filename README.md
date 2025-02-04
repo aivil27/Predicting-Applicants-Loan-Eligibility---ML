@@ -1,4 +1,4 @@
-# Predicting-Applicants-Loan-Eligibility - Machine Learning
+# Predicting Applicants Loan Eligibility - Machine Learning
 
 ## Dataset source
 
